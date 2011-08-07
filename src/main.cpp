@@ -2,6 +2,8 @@
 #include "glfw.h"
 #include "macros.h"
 
+#include "GameController.h"
+
 /*
  * Callback functions
  */
@@ -43,6 +45,7 @@ void initOpenGL()
 
 void clear()
 {
+    delete fightnight::CONTROLLER;
 }
 
 
@@ -60,6 +63,8 @@ int main()
     }
     initOpenGL();
     setCallBacks();
+
+    fightnight::CONTROLLER->run();
 
     clear();
     exit(EXIT_SUCCESS);
