@@ -1,8 +1,9 @@
 #include <cstdlib>
 #include "glfw.h"
-#include "macros.h"
 
+#include "macros.h"
 #include "GameController.h"
+#include "LuaScript.hpp"
 
 /*
  * Callback functions
@@ -46,6 +47,7 @@ void initOpenGL()
 void clear()
 {
     delete fightnight::CONTROLLER;
+    delete fightnight::LUA;
 }
 
 
@@ -61,11 +63,12 @@ int main()
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
+
     initOpenGL();
     setCallBacks();
 
+    fightnight::LUA; //inicialize lua.
     fightnight::CONTROLLER->run();
 
-    clear();
     exit(EXIT_SUCCESS);
 }

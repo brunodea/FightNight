@@ -5,5 +5,6 @@
 #define WINDOW_HEIGHT 600
 
 #define CONTROLLER GameController::instance()
+#define LUA LuaScript::instance()
 
 #endif
