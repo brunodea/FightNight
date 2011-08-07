@@ -1,6 +1,9 @@
 #include "GameController.h"
 #include "glfw.h"
 
+#include "game/view/MenuOption.h"
+#include "macros.h"
+
 using namespace fightnight;
 
 GameController *GameController::m_sInstance = 0;
@@ -51,6 +54,9 @@ void GameController::onRender()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     glClear(GL_COLOR_BUFFER_BIT);
+
+    game::view::MenuOption m("lol", Point2(100,100), Rectangle(0,0,20,20));
+    m.draw();
 }
 
 void GameController::onUpdate()

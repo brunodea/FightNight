@@ -1,9 +1,12 @@
 #include <cstdlib>
+#include <iostream>
 #include "glfw.h"
 
 #include "macros.h"
 #include "GameController.h"
 #include "LuaScript.hpp"
+
+using namespace fightnight;
 
 /*
  * Callback functions
@@ -46,10 +49,21 @@ void initOpenGL()
 
 void clear()
 {
-    delete fightnight::CONTROLLER;
-    delete fightnight::LUA;
+    delete CONTROLLER;
+    delete LUA;
 }
 
+void testLua()
+{
+    if(luaL_loadfile(LUA_STATE,"../resources/scripts/test.lua") || lua_pcall(LUA_STATE,0,0,0))
+    {
+        std::cout << lua_tostring(LUA_STATE,-1) << std::endl;
+        return;
+    }
+    lua_getglobal(LUA_STATE,"Level");
+    int level = lua_tonumber(LUA_STATE, -1);
+    std::cout << "Level: " << level << std::endl;
+}
 
 int main()
 {
@@ -68,6 +82,7 @@ int main()
     setCallBacks();
 
     fightnight::LUA; //inicialize lua.
+    testLua();
     fightnight::CONTROLLER->run();
 
     exit(EXIT_SUCCESS);
