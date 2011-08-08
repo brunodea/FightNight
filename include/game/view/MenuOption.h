@@ -13,29 +13,14 @@ namespace view
     class MenuOption
     {
     public:
-        MenuOption(const std::string &text, const Point2 &pos, const Rectangle &rect,
+        MenuOption(const std::string &text, const Rectangle &rect,
                    const std::string &font, int fontsize, bool clickable = false);
-        MenuOption(const std::string &text, const Point2 &pos, const std::string &font, int fontsize, bool clickable = false);
+        MenuOption(const std::string &text, const std::string &font, int fontsize, bool clickable = false);
 
-        void draw();
-
-        inline Point2 pos() { return m_Pos; }
-        inline void setPos(const Point2 &pos)
-        {
-            m_Pos = pos;
-            boost::polygon::interval_data<int> w = boost::polygon::get(m_BoundingRect, boost::polygon::HORIZONTAL);
-            boost::polygon::interval_data<int> h = boost::polygon::get(m_BoundingRect, boost::polygon::VERTICAL);
-
-            m_BoundingRect = Rectangle(w.low(),h.low(),w.high(),h.high());
-            boost::polygon::convolve(m_BoundingRect, m_Pos);
-        }
+        void draw(float r = 1.f, float g = 1.f, float b = 1.f, float a = 1.f);
 
         inline Rectangle rect() { return m_BoundingRect; }
-        inline void setRect(const Rectangle &rect)
-        {
-            m_BoundingRect = rect;
-            boost::polygon::convolve(m_BoundingRect, m_Pos);
-        }
+        inline void setRect(const Rectangle &rect) { m_BoundingRect = rect; }
 
     private:
         std::string m_Text;
@@ -43,7 +28,6 @@ namespace view
         int m_iFontSize;
         bool m_bClickable;
 
-        Point2 m_Pos;
         Rectangle m_BoundingRect;
     };
 }

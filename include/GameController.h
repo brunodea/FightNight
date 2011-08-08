@@ -1,6 +1,7 @@
 #ifndef _FIGHT_NIGHT_GAME_CONTROLLER_H
 #define _FIGHT_NIGHT_GAME_CONTROLLER_H
 
+#include "game/view/MenuScreen.h"
 #include "game/view/MenuOption.h"
 
 namespace fightnight
@@ -23,7 +24,7 @@ namespace fightnight
         static GameController *m_sInstance;
         bool m_bRunning;
 
-        game::view::MenuOption m_MenuOpt;
+        game::view::MenuScreen m_MenuScreen;
     }; //end of class GameController.
 } //end of namespace fightnight.
 #endif // _FIGHT_NIGHT_GAME_CONTROLLER_H
