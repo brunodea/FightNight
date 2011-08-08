@@ -2,6 +2,9 @@
 #include "LuaScript.hpp"
 #include "macros.h"
 
+#include <string>
+#include <sstream>
+
 using namespace game;
 using namespace view;
 using namespace fightnight;
@@ -14,46 +17,28 @@ MenuScreen::MenuScreen(const Point2 &initPos)
 MenuScreen::MenuScreen(const std::string &lua_screen_var_name, const Point2 &initPos)
     : m_OptionsInitPos(initPos)
 {
-    if(luaL_loadfile(LUA_STATE,"../resources/scripts/menuscreen.lua") || lua_pcall(LUA_STATE,0,0,0))
-    {
-        std::cout << lua_tostring(LUA_STATE,-1) << std::endl;
-        return;
-    }
-    int size = 0;
+    std::string filename = "../resources/scripts/menuscreen.lua";
 
-    lua_getglobal(LUA_STATE, lua_screen_var_name.c_str());
-    lua_pushstring(LUA_STATE, "size");
-    lua_gettable(LUA_STATE, -2);
-    size = lua_tonumber(LUA_STATE,-1);
-    lua_pop(LUA_STATE,1);
-
+    int size = (int)LUA->getNumberFromTable(filename, lua_screen_var_name, "size");
     for(int i = 1; i <= size; i++)
     {
-        lua_pushnumber(LUA_STATE,i);
-        lua_gettable(LUA_STATE, -2);
+        std::string val;
+        std::stringstream ss;
+        ss << i;
+        ss >> val;
+        std::string text = LUA->getStringFromTable(filename, lua_screen_var_name, val+".text");
+        std::string font = LUA->getStringFromTable(filename, lua_screen_var_name, val+".font");
+        int fontsize = (int)LUA->getNumberFromTable(filename, lua_screen_var_name, val+".fontsize");
+        bool clickable = LUA->getBoolFromTable(filename, lua_screen_var_name, val+".clickable");
 
-        lua_pushstring(LUA_STATE, "text");
+        float w = LUA->getNumberFromTable(filename, lua_screen_var_name, val+".rect.width");
+        float h = LUA->getNumberFromTable(filename, lua_screen_var_name, val+".rect.height");
 
-        lua_gettable(LUA_STATE,-2);
-        std::string text = lua_tostring(LUA_STATE, -1);
+        float x = LUA->getNumberFromTable(filename, lua_screen_var_name, val+".rect.x");
+        float y = LUA->getNumberFromTable(filename, lua_screen_var_name, val+".rect.y");
 
-        lua_pop(LUA_STATE, 1);
-        lua_pushstring(LUA_STATE,"font");
-
-        lua_gettable(LUA_STATE,-2);
-        std::string font = lua_tostring(LUA_STATE, -1);
-
-        lua_pop(LUA_STATE, 1);
-        lua_pushstring(LUA_STATE,"fontsize");
-
-        lua_gettable(LUA_STATE, -2);
-        int fontsize = lua_tonumber(LUA_STATE, -1);
-
-        lua_pop(LUA_STATE,2);
-
-        addOption(new MenuOption(text, font, fontsize, true));
+        addOption(new MenuOption(text, Rectangle(x,y,w,-1*h), font, fontsize, clickable));
     }
-    lua_pop(LUA_STATE,3);
 }
 
 MenuScreen::~MenuScreen()

@@ -7,6 +7,8 @@ extern "C"
 #include "lauxlib.h"
 }
 
+#include <string>
+
 namespace fightnight
 {
     class LuaScript
@@ -17,6 +19,10 @@ namespace fightnight
         static LuaScript *instance();
 
         lua_State *luaState();
+
+        std::string getStringFromTable(const std::string &file_name, const std::string &table_name, const std::string &path_to_value);
+        float getNumberFromTable(const std::string &file_name, const std::string &table_name, const std::string &path_to_value);
+        bool getBoolFromTable(const std::string &file_name, const std::string &table_name, const std::string &path_to_value);
     private:
         LuaScript();
 

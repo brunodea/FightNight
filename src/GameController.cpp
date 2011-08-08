@@ -8,7 +8,7 @@ using namespace fightnight;
 GameController *GameController::m_sInstance = 0;
 
 GameController::GameController()
-    : m_bRunning(true), m_TitleScreen("title_screen", Point2(WINDOW_WIDTH/2,WINDOW_HEIGHT/2.5))
+    : m_bRunning(true), m_TitleScreen("title_screen", Point2(WINDOW_WIDTH/2.5,WINDOW_HEIGHT/2.2))
 {
 }
 
