@@ -2,6 +2,7 @@
 #define _FIGHT_NIGHT_GAME_FONT_HPP_
 
 #include <gltext.h>
+#include <vector>
 #include <map>
 #include <string>
 
@@ -21,7 +22,7 @@ namespace util
     private:
         static GameFont *m_sInstance;
 
-        std::map<std::string, std::pair<int, gltext::FontRendererPtr> > m_Map;
+        std::map<std::string, std::vector<std::pair<int, gltext::FontRendererPtr> > > m_Map;
     }; //end of class GameFont.
 } //end of namespace util.
 } //end of namespace fightnight.
