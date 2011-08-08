@@ -16,11 +16,12 @@ namespace fightnight
         void onRender();
         void onUpdate();
         void onKeyEvent(int key, int state);
+        void onMouseMoveEvent(int x, int y);
+        void onMouseButtonEvent(int button, int state);
 
     private:
         GameController();
 
-        void initTitleScreen();
     private:
         static GameController *m_sInstance;
         bool m_bRunning;

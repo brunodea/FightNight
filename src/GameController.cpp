@@ -8,7 +8,7 @@ using namespace fightnight;
 GameController *GameController::m_sInstance = 0;
 
 GameController::GameController()
-    : m_bRunning(true), m_TitleScreen("title_screen", Point2(WINDOW_WIDTH/2.5,WINDOW_HEIGHT/2.2))
+    : m_bRunning(true), m_TitleScreen(std::string("title_screen"))
 {
 }
 
@@ -70,7 +70,12 @@ void GameController::onKeyEvent(int key, int state)
 {
 }
 
-void GameController::initTitleScreen()
+void GameController::onMouseMoveEvent(int x, int y)
 {
+    m_TitleScreen.onMouseMove(x, y);
+}
 
+void GameController::onMouseButtonEvent(int button, int state)
+{
+    m_TitleScreen.onMouseClick(button, state);
 }

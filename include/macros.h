@@ -10,10 +10,13 @@
 
 #define GAME_FONT GameFont::instance()
 
-#include <boost/polygon/polygon.hpp>
-typedef boost::polygon::point_data<float> Point2;
-typedef boost::polygon::rectangle_data<float> Rectangle;
-typedef boost::polygon::interval_data<float> polygon_interval;
+#include "glfw.h"
+
+#include <boost/geometry.hpp>
+#include <boost/geometry/geometries/point_xy.hpp>
+#include <boost/geometry/geometries/box.hpp>
+typedef boost::geometry::model::d2::point_xy<float> Point2;
+typedef boost::geometry::model::box<Point2> Rectangle;
 
 extern "C"
 {

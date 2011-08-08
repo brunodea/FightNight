@@ -44,12 +44,17 @@ function MenuOpt(self)
 end
 
 title_screen = {
-    size = 4;
+    size = 4,
+    position = {
+        x = 340,
+        y = 270,
+    },
     MenuOpt {
         text = "PLAY",
 --        font = "../resources/fonts/crackman.ttf",
         fontsize = 18,
         rect = {
+            x = 25,
             width = 50,
             height = 20,
         }
@@ -59,6 +64,7 @@ title_screen = {
 --        font = "../resources/fonts/Starcraft.ttf",
         fontsize = 18,
         rect = {
+            x = -15,
             width = 140,
             height = 20,
         }
@@ -68,6 +74,7 @@ title_screen = {
 --        font = "../resources/fonts/Starcraft.ttf",
         fontsize = 18,
         rect = {
+            x = 10,
             width = 90,
             height = 20,
         }
@@ -77,9 +84,12 @@ title_screen = {
 --        font = "../resources/fonts/Starcraft.ttf",
         fontsize = 18,
         rect = {
+            x = 25,
             width = 50,
             height = 20,
         }
     },
 }
+
+
 

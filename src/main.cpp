@@ -14,6 +14,12 @@ using namespace fightnight;
  */
 void GLFWCALL mousePosCallback(int x, int y)
 {
+    CONTROLLER->onMouseMoveEvent(x,y);
+}
+
+void GLFWCALL mouseButtonCallback(int button, int state)
+{
+    CONTROLLER->onMouseButtonEvent(button, state);
 }
 
 void GLFWCALL keyEventCallback(int key, int state)
@@ -34,6 +40,7 @@ void GLFWCALL handleResize(int width, int height)
 void setCallBacks()
 {
     glfwSetMousePosCallback(mousePosCallback);
+    glfwSetMouseButtonCallback(mouseButtonCallback);
     glfwSetKeyCallback(keyEventCallback);
     glfwSetWindowSizeCallback(handleResize);
 }
@@ -67,7 +74,6 @@ int main()
         glfwTerminate();
         exit(EXIT_FAILURE);
     }
-
     initOpenGL();
     setCallBacks();
 

@@ -22,6 +22,14 @@ namespace view
         inline Rectangle rect() { return m_BoundingRect; }
         inline void setRect(const Rectangle &rect) { m_BoundingRect = rect; }
 
+        inline bool isMouseOver() { return m_bMouseIsOver; }
+        inline void setMouseOver(int mouse_x, int mouse_y)
+        {
+            m_bMouseIsOver = boost::geometry::within(Point2(mouse_x, mouse_y), m_BoundingRect);
+        }
+
+        std::string text() { return m_Text; }
+
     private:
         std::string m_Text;
         std::string m_Font;
@@ -29,6 +37,8 @@ namespace view
         bool m_bClickable;
 
         Rectangle m_BoundingRect;
+
+        bool m_bMouseIsOver;
     };
 }
 }

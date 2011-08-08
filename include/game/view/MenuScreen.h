@@ -15,11 +15,14 @@ namespace view
     {
     public:
         MenuScreen(const Point2 &initPos);
-        MenuScreen(const std::string &lua_var_name, const Point2 &initPos);
+        MenuScreen(const std::string &lua_var_name);
         ~MenuScreen();
 
         void addOption(MenuOption *option);
         void draw(float r = 1.f, float g = 1.f, float b = 1.f, float a = 1.f);
+
+        void onMouseMove(int x, int y);
+        void onMouseClick(int button, int state);
 
     private:
         std::vector<MenuOption *> m_Options;
