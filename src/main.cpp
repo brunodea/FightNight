@@ -57,6 +57,7 @@ void clear()
 
 void testLua()
 {
+    /*
     if(luaL_loadfile(LUA_STATE,"../resources/scripts/test.lua") || lua_pcall(LUA_STATE,0,0,0))
     {
         std::cout << lua_tostring(LUA_STATE,-1) << std::endl;
@@ -64,7 +65,9 @@ void testLua()
     }
     lua_getglobal(LUA_STATE,"Level");
     int level = lua_tonumber(LUA_STATE, -1);
+    lua_pop(LUA_STATE,2);
     std::cout << "Level: " << level << std::endl;
+    */
 }
 
 int main()

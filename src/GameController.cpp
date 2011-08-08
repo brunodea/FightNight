@@ -8,12 +8,8 @@ using namespace fightnight;
 GameController *GameController::m_sInstance = 0;
 
 GameController::GameController()
-    : m_bRunning(true), m_MenuScreen(Point2(400,260))
-    //m_MenuOpt("Guerreiros de Asgard", Point2(300,300), "../resources/fonts/arial.ttf",24)
+    : m_bRunning(true), m_TitleScreen("title_screen", Point2(WINDOW_WIDTH/2,WINDOW_HEIGHT/2))
 {
-    m_MenuScreen.addOption(new game::view::MenuOption("Jogar", "../resources/fonts/arial.ttf", 24));
-    m_MenuScreen.addOption(new game::view::MenuOption("Opcoes", "../resources/fonts/arial.ttf", 24));
-    m_MenuScreen.addOption(new game::view::MenuOption("Sair", "../resources/fonts/arial.ttf", 24));
 }
 
 GameController *GameController::instance()
@@ -61,7 +57,7 @@ void GameController::onRender()
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-    m_MenuScreen.draw();
+    m_TitleScreen.draw();
 
     glDisable(GL_BLEND);
 }
@@ -72,4 +68,9 @@ void GameController::onUpdate()
 
 void GameController::onKeyEvent(int key, int state)
 {
+}
+
+void GameController::initTitleScreen()
+{
+
 }

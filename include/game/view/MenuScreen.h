@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <boost/polygon/polygon.hpp>
+#include <string>
 #include "macros.h"
 #include "game/view/MenuOption.h"
 
@@ -14,6 +15,7 @@ namespace view
     {
     public:
         MenuScreen(const Point2 &initPos);
+        MenuScreen(const std::string &lua_var_name, const Point2 &initPos);
         ~MenuScreen();
 
         void addOption(MenuOption *option);

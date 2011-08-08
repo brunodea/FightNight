@@ -14,4 +14,10 @@
 typedef boost::polygon::point_data<int> Point2;
 typedef boost::polygon::rectangle_data<int> Rectangle;
 
+extern "C"
+{
+#include "lua.h"
+#include "lauxlib.h"
+}
+
 #endif
