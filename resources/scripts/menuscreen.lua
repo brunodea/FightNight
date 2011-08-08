@@ -1,5 +1,5 @@
 FONT_SIZE_DEFAULT = 18
-FONT_DEFAULT = "../resources/fonts/diablo_2.ttf" 
+FONT_DEFAULT = "../resources/fonts/crackman.ttf" 
 
 function MenuOpt(self)
     if not self.text then
@@ -40,6 +40,6 @@ title_screen = {
         text = "EXIT",
 --        font = "../resources/fonts/Starcraft.ttf",
         fontsize = 18
-    }
+    },
 }
 

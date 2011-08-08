@@ -11,8 +11,9 @@
 #define GAME_FONT GameFont::instance()
 
 #include <boost/polygon/polygon.hpp>
-typedef boost::polygon::point_data<int> Point2;
-typedef boost::polygon::rectangle_data<int> Rectangle;
+typedef boost::polygon::point_data<float> Point2;
+typedef boost::polygon::rectangle_data<float> Rectangle;
+typedef boost::polygon::interval_data<float> polygon_interval;
 
 extern "C"
 {

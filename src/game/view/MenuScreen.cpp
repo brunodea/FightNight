@@ -65,10 +65,10 @@ MenuScreen::~MenuScreen()
 void MenuScreen::addOption(MenuOption *option)
 {
     unsigned int size = m_Options.size();
-    int h = 0;
+    float h = 0;
     for(unsigned int i = 0; i < size; i++)
     {
-        boost::polygon::interval_data<int> hid = boost::polygon::get(option->rect(), boost::polygon::VERTICAL);
+        polygon_interval hid = boost::polygon::get(option->rect(), boost::polygon::VERTICAL);
         h += hid.high()-hid.low() + 3;
     }
     Point2 p(m_OptionsInitPos.get(boost::polygon::HORIZONTAL),m_OptionsInitPos.get(boost::polygon::VERTICAL) + h);
