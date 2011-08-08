@@ -19,13 +19,14 @@ GameFont *GameFont::instance()
 
 void GameFont::drawText(const std::string &text, const std::string &font, int fontsize)
 {
-    std::map<std::string, gltext::FontRendererPtr>::iterator it = m_Map.find(font);
-    if(it == m_Map.end())
+    std::map<std::string, std::pair<int, gltext::FontRendererPtr> >::iterator it = m_Map.find(font);
+    if(it == m_Map.end() || ((*it).second.first != fontsize))
     {
         gltext::FontRendererPtr f = gltext::CreateRenderer(gltext::PIXMAP, gltext::OpenFont(font.c_str(), fontsize));
-        m_Map.insert(std::pair<std::string, gltext::FontRendererPtr>(font,f));
+        std::pair<int, gltext::FontRendererPtr> p = std::pair<int, gltext::FontRendererPtr>(fontsize, f);
+        m_Map.insert(std::pair<std::string, std::pair<int, gltext::FontRendererPtr> >(font,p));
         it = m_Map.find(font);
     }
 
-    GLTEXT_STREAM((*it).second) << text;
+    GLTEXT_STREAM((*it).second.second) << text;
 }

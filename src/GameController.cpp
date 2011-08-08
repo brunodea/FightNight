@@ -8,7 +8,7 @@ using namespace fightnight;
 GameController *GameController::m_sInstance = 0;
 
 GameController::GameController()
-    : m_bRunning(true), m_MenuOpt("LOL", Point2(100,100), "../resources/fonts/arial.ttf",24)
+    : m_bRunning(true), m_MenuOpt("Guerreiros de Asgard", Point2(300,300), "../resources/fonts/arial.ttf",24)
 {
 }
 
@@ -54,7 +54,12 @@ void GameController::onRender()
     glLoadIdentity();
     glClear(GL_COLOR_BUFFER_BIT);
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     m_MenuOpt.draw();
+
+    glDisable(GL_BLEND);
 }
 
 void GameController::onUpdate()

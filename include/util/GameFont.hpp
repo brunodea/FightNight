@@ -21,7 +21,7 @@ namespace util
     private:
         static GameFont *m_sInstance;
 
-        std::map<std::string, gltext::FontRendererPtr> m_Map;
+        std::map<std::string, std::pair<int, gltext::FontRendererPtr> > m_Map;
     }; //end of class GameFont.
 } //end of namespace util.
 } //end of namespace fightnight.
