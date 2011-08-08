@@ -37,6 +37,7 @@ void MenuOption::draw(float r, float g, float b, float a)
         fightnight::util::GAME_FONT->drawText(m_Text, m_Font, m_iFontSize);
     glPopMatrix();
 
+    /*
     glColor4f(1.f,0.f,0.f,.3f);
     glBegin(GL_QUADS);
         glVertex2d(w.low(),h.low());
@@ -44,4 +45,5 @@ void MenuOption::draw(float r, float g, float b, float a)
         glVertex2d(w.high(),h.high());
         glVertex2d(w.low(),h.high());
     glEnd();
+    */
 }

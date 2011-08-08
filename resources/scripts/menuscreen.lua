@@ -1,5 +1,5 @@
 FONT_SIZE_DEFAULT = 18
-FONT_DEFAULT = "../resources/fonts/arial.ttf" 
+FONT_DEFAULT = "../resources/fonts/diablo_2.ttf" 
 
 function MenuOpt(self)
     if not self.text then
@@ -22,24 +22,24 @@ end
 title_screen = {
     size = 4,
     MenuOpt{
-        text = "Play",
-        font = "../resources/fonts/arial.ttf",
-        fontsize = 12
+        text = "PLAY",
+--        font = "../resources/fonts/crackman.ttf",
+        fontsize = 18
     },
     MenuOpt{
-        text = "Multiplayer",
-        font = "../resources/fonts/arial.ttf",
-        fontsize = 24
+        text = "MULTIPLAYER",
+--        font = "../resources/fonts/Starcraft.ttf",
+        fontsize = 18
     },
     MenuOpt{
-        text = "Options",
-        font = "../resources/fonts/arial.ttf",
-        fontsize = 24
+        text = "OPTIONS",
+--        font = "../resources/fonts/Starcraft.ttf",
+        fontsize = 18
     },
     MenuOpt{
-        text = "Exit",
-        font = "../resources/fonts/arial.ttf",
-        fontsize = 24
+        text = "EXIT",
+--        font = "../resources/fonts/Starcraft.ttf",
+        fontsize = 18
     }
 }
 
