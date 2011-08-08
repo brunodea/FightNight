@@ -53,6 +53,7 @@ MenuScreen::MenuScreen(const std::string &lua_screen_var_name, const Point2 &ini
 
         addOption(new MenuOption(text, font, fontsize, true));
     }
+    lua_pop(LUA_STATE,3);
 }
 
 MenuScreen::~MenuScreen()

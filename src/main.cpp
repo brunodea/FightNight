@@ -55,21 +55,6 @@ void clear()
     delete util::GAME_FONT;
 }
 
-void testLua()
-{
-    /*
-    if(luaL_loadfile(LUA_STATE,"../resources/scripts/test.lua") || lua_pcall(LUA_STATE,0,0,0))
-    {
-        std::cout << lua_tostring(LUA_STATE,-1) << std::endl;
-        return;
-    }
-    lua_getglobal(LUA_STATE,"Level");
-    int level = lua_tonumber(LUA_STATE, -1);
-    lua_pop(LUA_STATE,2);
-    std::cout << "Level: " << level << std::endl;
-    */
-}
-
 int main()
 {
     if(!glfwInit())
@@ -86,8 +71,7 @@ int main()
     initOpenGL();
     setCallBacks();
 
-    fightnight::LUA; //inicialize lua.
-    testLua();
+    fightnight::LUA; //inicializa lua.
     fightnight::CONTROLLER->run();
 
     exit(EXIT_SUCCESS);
