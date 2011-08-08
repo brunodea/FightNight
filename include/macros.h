@@ -8,6 +8,8 @@
 #define LUA LuaScript::instance()
 #define LUA_STATE LUA->luaState()
 
+#define GAME_FONT GameFont::instance()
+
 #include <boost/polygon/polygon.hpp>
 typedef boost::polygon::point_data<int> Point2;
 typedef boost::polygon::rectangle_data<int> Rectangle;

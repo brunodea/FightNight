@@ -1,7 +1,6 @@
 #include "GameController.h"
 #include "glfw.h"
 
-#include "game/view/MenuOption.h"
 #include "macros.h"
 
 using namespace fightnight;
@@ -9,7 +8,7 @@ using namespace fightnight;
 GameController *GameController::m_sInstance = 0;
 
 GameController::GameController()
-    : m_bRunning(true)
+    : m_bRunning(true), m_MenuOpt("LOL", Point2(100,100), "../resources/fonts/arial.ttf",24)
 {
 }
 
@@ -55,8 +54,7 @@ void GameController::onRender()
     glLoadIdentity();
     glClear(GL_COLOR_BUFFER_BIT);
 
-    game::view::MenuOption m("lol", Point2(100,100), Rectangle(0,0,20,20));
-    m.draw();
+    m_MenuOpt.draw();
 }
 
 void GameController::onUpdate()

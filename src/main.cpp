@@ -5,6 +5,7 @@
 #include "macros.h"
 #include "GameController.h"
 #include "LuaScript.hpp"
+#include "util/GameFont.hpp"
 
 using namespace fightnight;
 
@@ -51,6 +52,7 @@ void clear()
 {
     delete CONTROLLER;
     delete LUA;
+    delete util::GAME_FONT;
 }
 
 void testLua()

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <boost/polygon/polygon.hpp>
+#include <gltext.h>
 #include "macros.h"
 
 namespace game
@@ -12,8 +13,9 @@ namespace view
     class MenuOption
     {
     public:
-        MenuOption(const std::string &text, const Point2 &pos, const Rectangle &rect, bool clickable = false);
-        MenuOption(const std::string &text, const Point2 &pos, bool clickable = false);
+        MenuOption(const std::string &text, const Point2 &pos, const Rectangle &rect,
+                   const std::string &font, int fontsize, bool clickable = false);
+        MenuOption(const std::string &text, const Point2 &pos, const std::string &font, int fontsize, bool clickable = false);
 
         void draw();
 
@@ -37,6 +39,8 @@ namespace view
 
     private:
         std::string m_Text;
+        std::string m_Font;
+        int m_iFontSize;
         bool m_bClickable;
 
         Point2 m_Pos;
