@@ -10,7 +10,10 @@
 
 #define GAME_FONT GameFont::instance()
 
+#define TEXTURE Texture::instance()
+
 #include "glfw.h"
+#include "util/Texture.hpp"
 
 #include <boost/geometry.hpp>
 #include <boost/geometry/geometries/point_xy.hpp>

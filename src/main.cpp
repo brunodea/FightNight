@@ -6,6 +6,7 @@
 #include "GameController.h"
 #include "LuaScript.hpp"
 #include "util/GameFont.hpp"
+#include "util/Texture.hpp"
 
 using namespace fightnight;
 
@@ -60,6 +61,7 @@ void clear()
     delete CONTROLLER;
     delete LUA;
     delete util::GAME_FONT;
+    delete util::TEXTURE;
 }
 
 int main()
